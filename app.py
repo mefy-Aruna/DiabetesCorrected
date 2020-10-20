@@ -28,8 +28,14 @@ def predict():
     prediction = model.predict(final_features)
 
     output = prediction[0]
+    if output==0:
+        output1='Normal'
+    elif output==1:
+        output1='Diabetic'
+    elif output==2:
+        output1='Pre-Diabetic'
 
-    return render_template('index1.html', prediction_text='The Patient is {}'.format(output))
+    return render_template('index1.html', prediction_text='The Patient is {}'.format(output1))
     
 if __name__ == "__main__":
     app.run(debug=True) 
